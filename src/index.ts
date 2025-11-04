@@ -1,7 +1,16 @@
-import { Elysia } from "elysia";
+import { createServices } from "@infrastructure/bootstrap";
+import { config } from "@infrastructure/config";
+import { createServer } from "@infrastructure/web/server";
 
-const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
+async function bootstrap() {
+	const services = createServices();
+	const app = await createServer(services);
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+	app.listen(config.port, () => {
+		console.log(`Server running on http://localhost:${config.port}`);
+	});
+}
+
+bootstrap().catch((err) => {
+	console.error(err);
+});

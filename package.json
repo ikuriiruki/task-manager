@@ -1,15 +1,19 @@
 {
-  "name": "app",
-  "version": "1.0.50",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
-  },
-  "dependencies": {
-    "elysia": "latest"
-  },
-  "devDependencies": {
-    "bun-types": "latest"
-  },
-  "module": "src/index.js"
+	"name": "app",
+	"version": "1.0.50",
+	"scripts": {
+		"test": "bun test",
+		"test:watch": "bun test --watch",
+		"dev": "bun run --watch src/index.ts",
+		"worker": "bun run src/infrastructure/queue/WorkerRunner.ts"
+	},
+	"dependencies": {
+		"@prisma/client": "^6.18.0",
+		"elysia": "latest"
+	},
+	"devDependencies": {
+		"bun-types": "latest",
+		"prisma": "^6.18.0"
+	},
+	"module": "src/index.js"
 }
