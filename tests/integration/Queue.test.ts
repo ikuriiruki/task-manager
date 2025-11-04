@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach } from "bun:test";
 import { RedisProducer } from "../../src/infrastructure/queue/RedisProducer";
 import { RedisWorker } from "../../src/infrastructure/queue/RedisWorker";
 import { redis } from "bun";
-import { writeFileSync, readFileSync, unlinkSync } from "fs";
+import { readFileSync, unlinkSync } from "fs";
 import { resolve } from "path";
 
 describe("Queue Integration Tests", () => {

@@ -1,5 +1,3 @@
-import { CreateTaskDTO } from "@application/dto/CreateTaskDTO";
-import { UpdateTaskDTO } from "@application/dto/UpdateTaskDTO";
 import { ServiceList } from "@infrastructure/bootstrap";
 import Elysia from "elysia";
 import { registerRoutes } from "src/presentation/web/routes";
