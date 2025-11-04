@@ -15,7 +15,6 @@ export class RedisWorker {
         while (this.isRunning) {
             try {
                 // BRPOP blocks until an item is available.
-                console.log("Worker waiting for message...");
                 const res = await redis.blpop(this.queueName, 1); // 1 second timeout
                 if (!res) {
                     continue;
