@@ -29,8 +29,7 @@ services:
     worker:
         build:
             context: ..
-            dockerfile: docker/Dockerfile
-        command: ["bun", "run", "worker"]
+            dockerfile: docker/Dockerfile.worker
         environment:
             - DATABASE_URL=postgresql://postgres:example@db:5432/tasks
             - REDIS_URL=redis://redis:6379
