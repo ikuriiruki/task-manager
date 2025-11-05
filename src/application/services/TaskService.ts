@@ -1,5 +1,5 @@
-import { CreateTaskDTOType } from "@application/dto/CreateTaskDTO";
-import { UpdateTaskDTOType } from "@application/dto/UpdateTaskDTO";
+import { CreateTaskDTO } from "@application/dto/CreateTaskDTO";
+import { UpdateTaskDTO } from "@application/dto/UpdateTaskDTO";
 import { TaskNotFound } from "@application/errors/TaskNotFound";
 import { INotifier } from "@application/interfaces/INotifier";
 import { Task } from "@domain/entities/Task";
@@ -12,7 +12,7 @@ export class TaskService {
         private notifier: INotifier
     ) {}
 
-    async create(dto: CreateTaskDTOType) {
+    async create(dto: CreateTaskDTO) {
         const dueDateVO = dto.dueDate ? new DueDate(dto.dueDate) : undefined;
 
         const task = new Task(
@@ -67,7 +67,7 @@ export class TaskService {
         };
     }
 
-    async update(id: string, dto: UpdateTaskDTOType) {
+    async update(id: string, dto: UpdateTaskDTO) {
         const task = await this.taskRepo.findById(id);
         if (!task) throw new TaskNotFound();
 
